@@ -9,9 +9,8 @@ def fib (limit) :
     # See https://docs.python.org/3/howto/functional.html#generator-expressions-and-list-comprehensions
     # Your code below
     def generateNumbers(limit):
-        for k in range(1,limit):
+        for i in list_fib(limit):
             yield i
-    list_fib(limit)
     return
 
 def list_fib(limit) :
