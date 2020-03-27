@@ -11,7 +11,7 @@ def fib (limit) :
     def generateNumbers(limit):
         for i in list_fib(limit):
             yield i
-    return
+    return generateNumbers
 
 def list_fib(limit) :
     # Construct a list of Fibonacci series
@@ -19,7 +19,7 @@ def list_fib(limit) :
     # Your code below
     list.append(0)
     list.append(1)
-    for k in range(1,limit):
+    for k in range(1,limit/2):
         n1 = list[k] + list[k-1]
         list.append(n1)
     list = [x for x in list if x < limit]
@@ -29,4 +29,5 @@ def list_fib(limit) :
 # e.g. with python solution.py
 if __name__ == "__main__":
     assert (list_fib(20) == [0, 1, 1, 2, 3, 5, 8, 13])
+    
 
