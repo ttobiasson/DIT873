@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plotter 
 import timeit
+import numpy as np
 
 
 steps = "10000000"
@@ -19,17 +20,19 @@ def generateTime(n):
                             'args = parser.parse_args();', 
                     number = 1)
         yield time
-        
+
 gen = generateTime(6)
 for i in range(6):
     timeList.append(next(gen))
 
+timeList = np.array(timeList)
+
 x2 = [1, 2, 4, 8, 16, 32]
-y2 = [y for y in timeList] 
-plotter.plot(x2, y2, label = "measured") 
+y2 = timeList
+plotter.plot(x2, y2/y2[0], label = "measured") 
 
 x1 = [1, 2, 4, 8, 16, 32]
-y1 = [((1-(0.95))*y2[0]+((0.95)/x)*y2[0]) for x in x1]
+y1 = x1
 
 plotter.plot(x1, y1, label = "theoretical") 
   
@@ -38,4 +41,4 @@ plotter.ylabel('Time in S')
 plotter.title('Parallelization graph') 
   
 plotter.legend() 
-plotter.show() 
+plotter.savefig('graf.png')
