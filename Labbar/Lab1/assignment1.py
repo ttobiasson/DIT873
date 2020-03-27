@@ -24,7 +24,7 @@ for i in range(6):
     timeList.append(next(gen))
 
 x1 = [1, 2, 4, 8, 16, 32]
-y1 = [1/((1-(0.95))+((0.95)/x)) for x in x1]
+y1 = [((1-(0.95))+((0.95)/x)) for x in x1]
 
 plotter.plot(x1, y1, label = "theoretical") 
 
