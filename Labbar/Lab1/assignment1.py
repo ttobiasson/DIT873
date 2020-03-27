@@ -3,7 +3,6 @@ import montecarlo
 import timeit
 
 
-workers = "1"
 steps = "10000000"
 
 def generateTime(n):
