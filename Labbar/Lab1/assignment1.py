@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plotter 
-import montecarlo
 import timeit
 
 
