@@ -7,7 +7,6 @@ steps = "10000000"
 def generateTime(n):
     for i in range(n):
         workers = str(2**i)
-        print(i)
         time = timeit.timeit('montecarlo.compute_pi(args)',
                     setup = 'import montecarlo;' 
                             'import argparse;'
