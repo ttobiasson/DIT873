@@ -23,14 +23,14 @@ timeList = []
 for i in range(6):
     timeList.append(next(gen))
 
-x1 = [1, 2, 4, 8, 16, 32]
-y1 = [((1-(0.95))+((0.95)/x)) for x in x1]
-
-plotter.plot(x1, y1, label = "theoretical") 
-
 x2 = [1, 2, 4, 8, 16, 32]
 y2 = [y for y in timeList] 
 plotter.plot(x2, y2, label = "measured") 
+
+x1 = [1, 2, 4, 8, 16, 32]
+y1 = [((1-(0.95))*y2[0]+((0.95)/x)*y2[0]) for x in x1]
+
+plotter.plot(x1, y1, label = "theoretical") 
   
 plotter.xlabel('Number of cores') 
 plotter.ylabel('Time in S') 
