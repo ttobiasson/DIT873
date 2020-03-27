@@ -34,8 +34,8 @@ x2 = [1, 2, 4, 8, 16, 32]
 y2 = [y for y in timeList] 
 plotter.plot(x2, y2, label = "measured") 
   
-plotter.xlabel('Time in S') 
-plotter.ylabel('Number of cores') 
+plotter.xlabel('Number of cores') 
+plotter.ylabel('Time in S') 
 plotter.title('Parallelization graph') 
   
 plotter.legend() 
