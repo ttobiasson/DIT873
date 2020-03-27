@@ -4,7 +4,7 @@ import timeit
 
 
 workers = "1"
-steps = "100000000"
+steps = "10000000"
 
 def generateTime(n):
     for i in range(n):
@@ -25,13 +25,13 @@ timeList = []
 for i in range(6):
     timeList.append(next(gen))
 
-y1 = [1, 2, 4, 8, 16, 32]
-x1 = [x for x in timeList]
+x1 = [1, 2, 4, 8, 16, 32]
+y1 = [1/((1-(0.95))+((0.95)/x)) for x in x1]
 
 plotter.plot(x1, y1, label = "theoretical") 
 
-x2 = [12,42,3] 
-y2 = [4,1,3] 
+x2 = [1, 2, 4, 8, 16, 32]
+y2 = [y for y in timeList] 
 plotter.plot(x2, y2, label = "measured") 
   
 plotter.xlabel('Time in S') 
