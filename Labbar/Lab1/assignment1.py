@@ -3,6 +3,8 @@ import timeit
 
 
 steps = "10000000"
+timeList = []
+
 
 def generateTime(n):
     for i in range(n):
@@ -17,8 +19,8 @@ def generateTime(n):
                             'args = parser.parse_args();', 
                     number = 1)
         yield time
+        
 gen = generateTime(6)
-timeList = []
 for i in range(6):
     timeList.append(next(gen))
 
