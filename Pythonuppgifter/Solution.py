@@ -1,33 +1,25 @@
-# Scaffold for solution to DIT873 / DAT346, Programming task 1
-
-
 def fib (limit) :
-    # Given an input limit, calculate the Fibonacci series within [0,limit]
-    # The first two numbers of the series are always equal to 1,
-    # and each consecutive number returned is the sum of the last two numbers.
-    # You should use generators for implementing this function
-    # See https://docs.python.org/3/howto/functional.html#generator-expressions-and-list-comprehensions
-    # Your code below
-    def generateNumbers(limit):
-        for i in list_fib(limit):
-            yield i
-    return generateNumbers
+    #Return a fibonacci number
+    previous = [0,1]
+    i = 2
+    while previous[i-1] + previous[i-2] < limit:
+        yield previous[i-1] + previous[i-2]
+        previous.append(previous[i-1] + previous[i-2])
+        i+=1
+
 
 def list_fib(limit) :
     # Construct a list of Fibonacci series
-    list = []
-    # Your code below
-    list.append(0)
-    list.append(1)
-    for k in range(1,limit/2):
-        n1 = list[k] + list[k-1]
-        list.append(n1)
-    list = [x for x in list if x < limit]
+    list = [0,1]
+    for i in fib(limit):
+        list.append(i)
     return list
 
-# The following is called if you execute the script from the commandline
-# e.g. with python solution.py
+
 if __name__ == "__main__":
     assert (list_fib(20) == [0, 1, 1, 2, 3, 5, 8, 13])
-    
+    assert (list_fib(40) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34])
+    assert (list_fib(80) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
+    assert (list_fib(160) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144])
+    assert (list_fib(440) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377])
 

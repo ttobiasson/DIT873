@@ -29,7 +29,7 @@ timeList = np.array(timeList)
 
 x2 = [1, 2, 4, 8, 16, 32]
 y2 = timeList
-plotter.plot(x2, y2/y2[0], label = "measured") 
+plotter.plot(x2, y2[0]/y2, label = "measured") 
 
 x1 = [1, 2, 4, 8, 16, 32]
 y1 = x1
@@ -41,4 +41,5 @@ plotter.ylabel('Time in S')
 plotter.title('Parallelization graph') 
   
 plotter.legend() 
-plotter.savefig('graf.png')
+plotter.show()
+#plotter.savefig('graf.png')
