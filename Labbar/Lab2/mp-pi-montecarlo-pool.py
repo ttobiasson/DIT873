@@ -1,13 +1,13 @@
 import multiprocessing # See https://docs.python.org/3/library/multiprocessing.html
 import argparse # See https://docs.python.org/3/library/argparse.html
 import random
-from math import pi
+from math import pi, fabs
 
 def sample_pi(n):
     """ Perform n steps of Monte Carlo simulation for estimating Pi/4.
         Returns the number of sucesses."""
     random.seed()
-    print("Hello from a worker")
+    #print("Hello from a worker")
     s = 0
     for i in range(n):
         x = random.random()
@@ -16,18 +16,41 @@ def sample_pi(n):
             s += 1
     return s
 
+def arbetarn(tasks, results):
+    while True:
+        work = tasks.get()
+        result = sample_pi(work)
+        tasks.task_done()
+        results.put(result)
 
 def compute_pi(args):
     random.seed(1)
-    upperBound = 1.96*(pi/4)*(1-(pi/4))
-    n = (int) ((upperBound**2) * (100**args.accuracy))
-    
-    p = multiprocessing.Pool(args.workers)
-    s = p.map(sample_pi, [n]*args.workers)
+    n = 2500
+    ourPi = pi
+    s_total = 0
+    n_total = 0
+    tasks = multiprocessing.JoinableQueue() #skapa en QUEUE
+    results = multiprocessing.Queue()
+    consumers = []
 
-    n_total = n*args.workers
-    s_total = sum(s)
-    pi_est = (4.0*s_total)/n_total
+    for _ in range(args.workers):
+            process = multiprocessing.Process(target = arbetarn, args=[tasks, results])
+            consumers.append(process)
+            process.start() #starta den
+
+    while ourPi > 1/(10**args.accuracy) :
+
+        for _ in range(args.workers):
+            tasks.put(n)
+        
+        tasks.join() 
+        while not results.empty():
+            s_total += results.get()
+
+        n_total += n*args.workers
+        pi_est = (4.0*s_total)/n_total
+        ourPi = fabs(pi - pi_est)
+
     print(" Steps\tSuccess\tPi est.\tError")
     print("%6d\t%7d\t%1.5f\t%1.5f" % (n_total, s_total, pi_est, pi-pi_est))
 
@@ -39,7 +62,7 @@ if __name__ == "__main__":
                         type = int,
                         help='Number of parallel processes')
     parser.add_argument('--accuracy', '-d',
-                        default='5',
+                        default='6',
                         type = int,
                         help='Number of digits of accuracy')
     args = parser.parse_args()
