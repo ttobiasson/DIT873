@@ -18,10 +18,10 @@ def sample_pi(n):
 
 def arbetarn(tasks, results):
     while True:
-        work = tasks.get()
+        work = tasks.get(block=True)
         result = sample_pi(work)
-        tasks.task_done()
         results.put(result)
+        tasks.task_done()
 
 def compute_pi(args):
     random.seed(1)
@@ -31,12 +31,12 @@ def compute_pi(args):
     n_total = 0
     tasks = multiprocessing.JoinableQueue() #skapa en QUEUE
     results = multiprocessing.Queue()
-    consumers = []
+    multiprocessing.Pool(args.workers, arbetarn, [tasks, results])
 
-    for _ in range(args.workers):
-            process = multiprocessing.Process(target = arbetarn, args=[tasks, results])
-            consumers.append(process)
-            process.start() #starta den
+    #for _ in range(args.workers):
+    #        process = multiprocessing.Process(target = arbetarn, args=[tasks, results])
+    #        consumers.Process()
+    #        process.start() #starta den
 
     while ourPi > 1/(10**args.accuracy) :
 
