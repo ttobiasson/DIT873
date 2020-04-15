@@ -35,11 +35,11 @@ def compute_pi(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Compute Pi using Monte Carlo simulation.')
     parser.add_argument('--workers', '-w',
-                        default='1',
+                        default='6',
                         type = int,
                         help='Number of parallel processes')
     parser.add_argument('--accuracy', '-d',
-                        default='4',
+                        default='5',
                         type = int,
                         help='Number of digits of accuracy')
     args = parser.parse_args()
