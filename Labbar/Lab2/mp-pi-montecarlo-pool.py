@@ -3,6 +3,18 @@ import argparse # See https://docs.python.org/3/library/argparse.html
 import random
 from math import pi, fabs
 
+class Arbetarn(multiprocessing.Process):
+    def __init__(self, tasks, results):
+        multiprocessing.Process.__init__(self)
+        self.tasks = tasks
+        self.results = results
+    def run(self): 
+        while True:
+            work = self.tasks.get(block = True)
+            result = sample_pi(work)
+            self.results.put(result)
+            self.tasks.task_done()
+
 def sample_pi(n):
     """ Perform n steps of Monte Carlo simulation for estimating Pi/4.
         Returns the number of sucesses."""
@@ -16,29 +28,20 @@ def sample_pi(n):
             s += 1
     return s
 
-def arbetarn(tasks, results):
-    while True:
-        work = tasks.get(block=True)
-        result = sample_pi(work)
-        results.put(result)
-        tasks.task_done()
-
 def compute_pi(args):
     random.seed(1)
-    n = 2500
+    n = 1500
     ourPi = pi
     s_total = 0
     n_total = 0
     tasks = multiprocessing.JoinableQueue() #skapa en QUEUE
     results = multiprocessing.Queue()
-    multiprocessing.Pool(args.workers, arbetarn, [tasks, results])
+    #pool = multiprocessing.Pool(args.workers, arbetarn, [tasks, results])
 
-    #for _ in range(args.workers):
-    #        process = multiprocessing.Process(target = arbetarn, args=[tasks, results])
-    #        consumers.Process()
-    #        process.start() #starta den
+    for _ in range(args.workers):
+        Arbetarn(tasks, results).start()
 
-    while ourPi > 1/(10**args.accuracy) :
+    while ourPi > 1/(10**args.accuracy):
 
         for _ in range(args.workers):
             tasks.put(n)

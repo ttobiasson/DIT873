@@ -3,7 +3,7 @@ import timeit
 import numpy as np
 
 
-accuracy = "4"
+accuracy = "7"
 timeList = []
 
 #Vi kanske borde byta axlarna med så att strecken går uppåt, kan vara en god tanke.
