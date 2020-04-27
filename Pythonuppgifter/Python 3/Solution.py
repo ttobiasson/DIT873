@@ -25,7 +25,7 @@ def longest_common_list(s_list):
 
     resultlist = [elem for elem in list for elem in revlist if elem in list]
 
-    return max(resultlist, key = len)
+    return max(resultlist, key = len, default=[])
     
 
 if __name__ == "__main__":
@@ -34,5 +34,7 @@ if __name__ == "__main__":
     assert longest_common_list([1,2,3,4,5,4,3,2,1]) == [1,2,3,4,5]
     assert longest_common_list([1,2,3,4,0,3,2,1]) == [1,2,3]
     assert longest_common_list([9,9,9,9,9,9,9,9,9]) == [9]
+    assert longest_common_list([1,2,3,4,5,6,7,8]) == []
     assert longest_common_list([1]) == [1]
     assert longest_common_list([]) == []
+
