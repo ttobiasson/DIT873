@@ -2,8 +2,6 @@ from mrjob.job import MRJob
 import re
 import numpy as np
 
-NUMBERS_RE = re.compile(r'[0-9]\t[1-9]+\.[0-9]+$')
-
 class MRGoodJob(MRJob):
 
     def mapper_init(self):
