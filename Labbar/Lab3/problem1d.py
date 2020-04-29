@@ -9,7 +9,7 @@ class MRGoodJob(MRJob):
 
     def configure_args(self):
         super(MRGoodJob, self).configure_args()
-        self.add_passthru_arg('--group', default=2,type=int)
+        self.add_passthru_arg('--group', type=int)
 
     def mapper(self, _, line):
         list = re.split(r'\t', line)
