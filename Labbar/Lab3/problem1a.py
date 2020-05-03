@@ -9,8 +9,7 @@ class MRGoodJob(MRJob):
     def mapper(self, _, line):
         for number in NUMBERS_RE.findall(line):
             yield 1, float(number)
-    def combiner(self, key, numbers):
-        yield key, [elem for elem in numbers]
+
     def reducer(self, key, numbers):
         ns = [number for number in numbers]
 
