@@ -9,7 +9,7 @@ class MRGoodJob(MRJob):
 
     def configure_args(self):
         super(MRGoodJob, self).configure_args()
-        self.add_passthru_arg('--group',type=int)
+        self.add_passthru_arg('--group',default = 12, type=int)
 
     def mapper(self, _, line):
         list = re.split(r'\t', line)
@@ -23,12 +23,13 @@ class MRGoodJob(MRJob):
         maximum = max(ns)
         sd = np.std(ns)
         mean = np.mean(ns)
-        histogram, edges = np.histogram(ns)
+        histogram, bins = np.histogram(ns)
+        
         yield "Standard Deviation", sd
         yield "Mean", mean
         yield "Minimum", minimum
         yield "Maximum", maximum
-        yield "Edges", edges.tolist()
+        yield "Bins", bins.tolist()
         yield "Histogram", histogram.tolist()
         yield "Median", np.median(ns)
 
