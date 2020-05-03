@@ -1,9 +1,10 @@
 from pyspark import SparkContext
+import argparse
 
-def goodFunction():
-    sc = SparkContext(master = 'local[8]')
+def goodFunction(args):
+    sc = SparkContext(master = 'local[' + args.cores + ']')
 
-    distFile = sc.textFile("/home/botvinnik/DIT873/Labbar/Lab3/assignment3.dat")
+    distFile = sc.textFile(args.file)
 
     list = distFile.map(lambda l: l.split('\t')) \
                    .map(lambda t: float(t[2]))
@@ -24,4 +25,16 @@ def goodFunction():
 
 
 if __name__ == "__main__":
-    goodFunction()
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('--cores', '-c',
+                        default='1',
+                        type = str,
+                        help='Number of cores')
+    parser.add_argument('--file', '-f',
+                        type=str,
+                        help='File to use')
+
+    args = parser.parse_args()
+
+    goodFunction(args)

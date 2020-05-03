@@ -27,4 +27,5 @@ class MRGoodJob(MRJob):
         yield "Histogram", histogram.tolist()
 
 if __name__ == '__main__':
+    
     MRGoodJob.run()
