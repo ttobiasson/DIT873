@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#"
+     xml:base="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#LocatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#LocatedIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Organisation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#alumnusOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#alumnusOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#University"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#bornIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#bornIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#employeeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#employeeOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Organisation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#countryName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#countryName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Place"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#organisationName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#organisationName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Organisation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#personName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#personName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#placeName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#placeName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Place"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#yearFounded -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#yearFounded">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#University"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-10#Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Organisation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Organisation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Place -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Place"/>
+    
+
+
+    <!-- http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#University -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#University">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/botvinnik/ontologies/2020/4/untitled-ontology-7#Organisation"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
