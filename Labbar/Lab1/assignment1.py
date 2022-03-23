@@ -21,9 +21,9 @@ def generateTime(n):
                     number = 1)
         yield time
 
-gen = generateTime(6)
+core_n = generateTime(6)
 for i in range(6):
-    timeList.append(next(gen))
+    timeList.append(next(core_n))
 
 timeList = np.array(timeList)
 
